@@ -9,8 +9,76 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YoutubeThumbnailDownloaderRouteImport } from './routes/youtube-thumbnail-downloader'
+import { Route as YoutubeQrCodeGeneratorRouteImport } from './routes/youtube-qr-code-generator'
+import { Route as YoutubeLinkGeneratorRouteImport } from './routes/youtube-link-generator'
+import { Route as YoutubeIframeGeneratorRouteImport } from './routes/youtube-iframe-generator'
+import { Route as YoutubeCaptionsDownloaderRouteImport } from './routes/youtube-captions-downloader'
+import { Route as TermsOfServiceRouteImport } from './routes/terms-of-service'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as DisclaimerRouteImport } from './routes/disclaimer'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const YoutubeThumbnailDownloaderRoute =
+  YoutubeThumbnailDownloaderRouteImport.update({
+    id: '/youtube-thumbnail-downloader',
+    path: '/youtube-thumbnail-downloader',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const YoutubeQrCodeGeneratorRoute = YoutubeQrCodeGeneratorRouteImport.update({
+  id: '/youtube-qr-code-generator',
+  path: '/youtube-qr-code-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const YoutubeLinkGeneratorRoute = YoutubeLinkGeneratorRouteImport.update({
+  id: '/youtube-link-generator',
+  path: '/youtube-link-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const YoutubeIframeGeneratorRoute = YoutubeIframeGeneratorRouteImport.update({
+  id: '/youtube-iframe-generator',
+  path: '/youtube-iframe-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const YoutubeCaptionsDownloaderRoute =
+  YoutubeCaptionsDownloaderRouteImport.update({
+    id: '/youtube-captions-downloader',
+    path: '/youtube-captions-downloader',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TermsOfServiceRoute = TermsOfServiceRouteImport.update({
+  id: '/terms-of-service',
+  path: '/terms-of-service',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisclaimerRoute = DisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +87,186 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
+  '/youtube-captions-downloader': typeof YoutubeCaptionsDownloaderRoute
+  '/youtube-iframe-generator': typeof YoutubeIframeGeneratorRoute
+  '/youtube-link-generator': typeof YoutubeLinkGeneratorRoute
+  '/youtube-qr-code-generator': typeof YoutubeQrCodeGeneratorRoute
+  '/youtube-thumbnail-downloader': typeof YoutubeThumbnailDownloaderRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
+  '/youtube-captions-downloader': typeof YoutubeCaptionsDownloaderRoute
+  '/youtube-iframe-generator': typeof YoutubeIframeGeneratorRoute
+  '/youtube-link-generator': typeof YoutubeLinkGeneratorRoute
+  '/youtube-qr-code-generator': typeof YoutubeQrCodeGeneratorRoute
+  '/youtube-thumbnail-downloader': typeof YoutubeThumbnailDownloaderRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
+  '/youtube-captions-downloader': typeof YoutubeCaptionsDownloaderRoute
+  '/youtube-iframe-generator': typeof YoutubeIframeGeneratorRoute
+  '/youtube-link-generator': typeof YoutubeLinkGeneratorRoute
+  '/youtube-qr-code-generator': typeof YoutubeQrCodeGeneratorRoute
+  '/youtube-thumbnail-downloader': typeof YoutubeThumbnailDownloaderRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/cookie-policy'
+    | '/disclaimer'
+    | '/privacy-policy'
+    | '/terms-of-service'
+    | '/youtube-captions-downloader'
+    | '/youtube-iframe-generator'
+    | '/youtube-link-generator'
+    | '/youtube-qr-code-generator'
+    | '/youtube-thumbnail-downloader'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/cookie-policy'
+    | '/disclaimer'
+    | '/privacy-policy'
+    | '/terms-of-service'
+    | '/youtube-captions-downloader'
+    | '/youtube-iframe-generator'
+    | '/youtube-link-generator'
+    | '/youtube-qr-code-generator'
+    | '/youtube-thumbnail-downloader'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/cookie-policy'
+    | '/disclaimer'
+    | '/privacy-policy'
+    | '/terms-of-service'
+    | '/youtube-captions-downloader'
+    | '/youtube-iframe-generator'
+    | '/youtube-link-generator'
+    | '/youtube-qr-code-generator'
+    | '/youtube-thumbnail-downloader'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  CookiePolicyRoute: typeof CookiePolicyRoute
+  DisclaimerRoute: typeof DisclaimerRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  TermsOfServiceRoute: typeof TermsOfServiceRoute
+  YoutubeCaptionsDownloaderRoute: typeof YoutubeCaptionsDownloaderRoute
+  YoutubeIframeGeneratorRoute: typeof YoutubeIframeGeneratorRoute
+  YoutubeLinkGeneratorRoute: typeof YoutubeLinkGeneratorRoute
+  YoutubeQrCodeGeneratorRoute: typeof YoutubeQrCodeGeneratorRoute
+  YoutubeThumbnailDownloaderRoute: typeof YoutubeThumbnailDownloaderRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/youtube-thumbnail-downloader': {
+      id: '/youtube-thumbnail-downloader'
+      path: '/youtube-thumbnail-downloader'
+      fullPath: '/youtube-thumbnail-downloader'
+      preLoaderRoute: typeof YoutubeThumbnailDownloaderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/youtube-qr-code-generator': {
+      id: '/youtube-qr-code-generator'
+      path: '/youtube-qr-code-generator'
+      fullPath: '/youtube-qr-code-generator'
+      preLoaderRoute: typeof YoutubeQrCodeGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/youtube-link-generator': {
+      id: '/youtube-link-generator'
+      path: '/youtube-link-generator'
+      fullPath: '/youtube-link-generator'
+      preLoaderRoute: typeof YoutubeLinkGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/youtube-iframe-generator': {
+      id: '/youtube-iframe-generator'
+      path: '/youtube-iframe-generator'
+      fullPath: '/youtube-iframe-generator'
+      preLoaderRoute: typeof YoutubeIframeGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/youtube-captions-downloader': {
+      id: '/youtube-captions-downloader'
+      path: '/youtube-captions-downloader'
+      fullPath: '/youtube-captions-downloader'
+      preLoaderRoute: typeof YoutubeCaptionsDownloaderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-of-service': {
+      id: '/terms-of-service'
+      path: '/terms-of-service'
+      fullPath: '/terms-of-service'
+      preLoaderRoute: typeof TermsOfServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disclaimer': {
+      id: '/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof DisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +279,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  CookiePolicyRoute: CookiePolicyRoute,
+  DisclaimerRoute: DisclaimerRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  TermsOfServiceRoute: TermsOfServiceRoute,
+  YoutubeCaptionsDownloaderRoute: YoutubeCaptionsDownloaderRoute,
+  YoutubeIframeGeneratorRoute: YoutubeIframeGeneratorRoute,
+  YoutubeLinkGeneratorRoute: YoutubeLinkGeneratorRoute,
+  YoutubeQrCodeGeneratorRoute: YoutubeQrCodeGeneratorRoute,
+  YoutubeThumbnailDownloaderRoute: YoutubeThumbnailDownloaderRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

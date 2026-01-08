@@ -6,6 +6,7 @@ import {
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import appCss from "../styles.css?url";
+import Sidebar from "@/components/modules/Sidebar/Sidebar";
 import type { QueryClient } from "@tanstack/react-query";
 
 export const Route = createRootRouteWithContext<{
@@ -30,6 +31,27 @@ export const Route = createRootRouteWithContext<{
         href: appCss,
       },
     ],
+    scripts: [
+      {
+        children: `
+      (function () {
+        try {
+          const stored = localStorage.getItem("theme");
+          const theme = stored
+            ? JSON.parse(stored).state.theme
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+
+          document.documentElement.classList.add(theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          document.documentElement.classList.add("light");
+        }
+      })();
+        `,
+      },
+    ],
   }),
 
   shellComponent: RootDocument,
@@ -42,18 +64,21 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
-        <TanStackDevtools
-          config={{
-            position: "bottom-right",
-          }}
-          plugins={[
-            {
-              name: "Tanstack Router",
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
+        <div className="flex min-h-screen">
+          <Sidebar />
+          <main className="flex-1">{children}</main>
+          <TanStackDevtools
+            config={{
+              position: "bottom-right",
+            }}
+            plugins={[
+              {
+                name: "Tanstack Router",
+                render: <TanStackRouterDevtoolsPanel />,
+              },
+            ]}
+          />
+        </div>
         <Scripts />
       </body>
     </html>
