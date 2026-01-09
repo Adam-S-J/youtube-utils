@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
-body {
-  @apply m-0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@variant dark (.dark &);
+
+:root {
+  --background: white;
+  --foreground: black;
 }
 
-code {
-  font-family:
-    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+.dark {
+  --background: oklch(21% 0.006 285.885);
+  --foreground: white;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
 }

@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { SidebarNavProps } from "./Sidebar.types";
+import type { FC } from "react";
+import type { SidebarNavProps } from "./Sidebar.types";
 import { useSidebar } from "./SidebarContext";
 import clsx from "clsx";
 import { SIDEBAR_LINKS } from "@/consts";
@@ -24,13 +24,15 @@ const SidebarNav: FC<SidebarNavProps> = ({ isMobile = false }) => {
           onClick={handleLinkClick}
           className={clsx(
             "ml-[6px] flex items-center gap-2 rounded-md",
-            !collapsed && "hover:bg-gray-200"
+            !collapsed &&
+              "hover:bg-gray-200 dark:hover:bg-white dark:hover:text-black"
           )}
         >
           <div
             className={clsx(
               "p-2",
-              collapsed && "rounded-full hover:bg-gray-200"
+              collapsed &&
+                "rounded-full hover:bg-gray-200 dark:hover:text-black"
             )}
           >
             <item.icon className="h-5 w-5" />

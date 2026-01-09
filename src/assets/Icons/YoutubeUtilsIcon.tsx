@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { IconTypes } from "@/types/Icons.types";
+import type { IconTypes } from "@/types/Icons.types";
 import { THEME_TYPES } from "@/consts";
 
 const YoutubeUtilsIcon: FC<IconTypes> = ({

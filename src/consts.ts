@@ -36,6 +36,9 @@ export const NAVIGATION_TYPES = {
   EXTERNAL: "external",
 } as const;
 
+export type NavigationType =
+  (typeof NAVIGATION_TYPES)[keyof typeof NAVIGATION_TYPES];
+
 export const SIDEBAR_LINKS = [
   { label: "Home", icon: Home, href: NAVIGATION_ROUTES.HOME },
   {
